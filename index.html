@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <title>Video Frame Capture Tool</title>
-  <link rel="stylesheet" href="drag-drop-file.css">
-  <script src="drag-drop-file.js"></script>
+<title>Video Frame Capture Tool</title>
+<link rel="stylesheet" href="drag-drop-file.css">
+<script src="drag-drop-file.js"></script>
 
-  <script src="VideoFrame.js"></script>
+<link rel="stylesheet" href="main.css">
+<script src="main.js"></script>
 
-  <link rel="stylesheet" href="main.css">
-  <script src="main.js"></script>
 <body>
-<div id="header">
-  <button id="jpeg">JPEG</button>
-  <button id="png">PNG</button>
-</div>
-<br>
-<div id="main">
-<video id="video" autoplay controls>
-</video>
-<canvas id="canvas"></canvas>
-</div>
-<span id="feedback"></span>
+  <div id="header">
+    <button id="jpeg">JPEG</button>
+    <button id="png">PNG</button>
+  </div>
+  <br>
+  <div id="main">
+    <video id="video" autoplay controls>
+    </video>
+    <canvas id="canvas"></canvas>
+  </div>
+  <span id="feedback">H/L to move by 1/60s, ⇧H/⇧L to move by 1s.</span>
 </body>
+
 </html>

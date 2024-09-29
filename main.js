@@ -2,14 +2,14 @@
 // Some parts and ideas from https://github.com/codepo8/videograbber
 var f;
 
-window.addEventListener("load", function() {
+window.addEventListener("load", function () {
   var domElement = document.getElementById("main");
   var feedbackElement = document.getElementById("feedback");
   var videoElement = document.getElementById("video");
 
   var fileName = "Video";
 
-  var callback = function(file) {
+  var callback = function (file) {
     console.log(file);
     fileName = file.name;
     videoElement.src = URL.createObjectURL(file);
@@ -41,23 +41,43 @@ window.addEventListener("load", function() {
     a.click();
   }
 
+  videoElement.addEventListener("keydown", (e) => {
+    const absDelta = e.shiftKey ? 1 : 1/60;
+    switch (e.code) {
+      case "KeyL":
+        {
+          videoElement.pause();
+          videoElement.currentTime += absDelta;
+          break;
+        }
+      case "KeyH":
+        {
+          videoElement.pause();
+          videoElement.currentTime -= absDelta;
+          break;
+        }
+      default:
+        return;
+    }
+    e.preventDefault();
+  });
+
   document.getElementById("jpeg").addEventListener("click", download.bind(this, "jpeg"));
   document.getElementById("png").addEventListener("click", download.bind(this, "png"));
 });
 
 
-formatTime = function(time) {
+formatTime = function (time) {
   // Each entry is [minimum number of digits if not first, separator before, value]
-  var hours   = Math.floor(time / (60 * 60 * 1));
-  var minutes = Math.floor(time / (     60 * 1)) % 60;
-  var seconds = Math.floor(time / (          1)) % 60;
+  var hours = Math.floor(time / (60 * 60 * 1));
+  var minutes = Math.floor(time / (60 * 1)) % 60;
+  var seconds = Math.floor(time / (1)) % 60;
 
   /**
    * @param {integer} number
    * @param {integer} numDigitsAfterPadding
    */
-  function pad(number, numDigitsAfterPadding)
-  {
+  function pad(number, numDigitsAfterPadding) {
     var output = "" + number;
     while (output.length < numDigitsAfterPadding) {
       output = "0" + output;
@@ -70,9 +90,9 @@ formatTime = function(time) {
   if (hours > 0) {
     secRestString = "" + pad(hours, 2) + "-" + pad(minutes, 2) + "-" + pad(seconds, 2);
   } else if (minutes > 0) {
-    secRestString = "" +                           minutes     + "-" + pad(seconds, 2);
+    secRestString = "" + minutes + "-" + pad(seconds, 2);
   } else {
-    secRestString = "" +                                                   seconds    ;
+    secRestString = "" + seconds;
     if (secRestString[0] === "1") {
       secFirstString = "1";
       secRestString = secRestString.substr(1);
