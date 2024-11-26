@@ -1,6 +1,7 @@
 {
-	"dependencies": {
-		"@cubing/deploy": "^0.1.4"
+	"devDependencies": {
+		"@cubing/deploy": "^0.1.4",
+		"serve": "^14.2.4"
 	},
 	"@cubing/deploy": {
 		"https://garron.net/app/vidframe": {
