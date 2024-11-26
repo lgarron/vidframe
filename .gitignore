@@ -1,0 +1,2 @@
+# `bun x` doesn't install local deps unless `node_modules` already exists, but better safe than sorry.
+/node_modules

@@ -1,0 +1,10 @@
+{
+	"dependencies": {
+		"@cubing/deploy": "^0.1.4"
+	},
+	"@cubing/deploy": {
+		"https://garron.net/app/vidframe": {
+			"fromLocalDir": "."
+		}
+	}
+}
