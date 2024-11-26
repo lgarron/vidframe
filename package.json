@@ -1,11 +1,12 @@
 {
-	"devDependencies": {
-		"@cubing/deploy": "^0.1.4",
-		"serve": "^14.2.4"
-	},
-	"@cubing/deploy": {
-		"https://garron.net/app/vidframe": {
-			"fromLocalDir": "."
-		}
-	}
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@cubing/deploy": "^0.1.4",
+    "serve": "^14.2.4"
+  },
+  "@cubing/deploy": {
+    "https://garron.net/app/vidframe": {
+      "fromLocalDir": "."
+    }
+  }
 }
